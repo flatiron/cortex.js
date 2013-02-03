@@ -1,0 +1,10 @@
+{
+  "configuration": {
+    "dist": "./dist/cortex.{type}.{ext}"
+  },
+  "bundle": {
+    "lib/cortex.js": {
+      "description": "Tiny helper library"
+    }
+  }
+}
