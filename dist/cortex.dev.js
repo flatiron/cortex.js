@@ -1250,25 +1250,6 @@
   });
 
   /**
-   * Generate event listening methods.
-   *
-   * @api private
-   */
-  Cortex.forEach([
-    'click',      'dblclick',   'mousedown',  'mouseup',
-    'mouseover',  'mousemove',  'mousedown',  'keydown',
-    'keypress',   'keyup',      'resize',     'scroll',
-    'change',     'submit',     'reset',      'focus',
-    'blur',       'touchstart', 'touchend',   'touchmove',
-    'touchmove', 'touchenter',  'touchleave', 'touchcancel'
-  ], function generateEvents(method) {
-    Nodelist.prototype[method] = function eventlistener(fn) {
-      Events.add(method, this.selector, fn);
-      return this;
-    };
-  });
-
-  /**
    * Generate proxy methods
    *
    * @TODO get/set/remove will probably override methods for the collection, so
@@ -1528,6 +1509,9 @@
   /**
    * Create a new Cortex application once everything is loaded correctly.
    *
+   * Options
+   *  - once: [name] defer initialization till Cortex.active.once is triggered
+   *
    * @param {String} name name of the application
    * @param {Function} instance constructor of the application
    * @param {Object} options optional options for the app.
@@ -1540,15 +1524,23 @@
     if (arguments.length === 1) return app[name];
     if (app[name]) return this;
 
-    Cortex.active(function (err, configuration) {
-      if (app[name] || err) return;
+    function instantly () {
+      Cortex.active(function (err, configuration) {
+        if (app[name] || err) return;
 
-      options = Cortex.extend(options || {}, configuration[name] || configuration);
-      var instance = app[name] = new Instance(options);
+        options = Cortex.extend(options || {}, configuration[name] || configuration);
+        var instance = app[name] = new Instance(options);
 
-      // notify the application that it has been loaded as a cortex app.
-      if ('emit' in instance) instance.emit('cortex:app', options);
-    });
+        // notify the application that it has been loaded as a cortex app.
+        if ('emit' in instance) instance.emit('cortex:app', options);
+      });
+    }
+
+    if (options && options.once) {
+      Cortex.active.once(options.once, instantly);
+    } else {
+      instantly();
+    }
 
     return this;
   };
