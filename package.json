@@ -19,7 +19,7 @@
   "dependencies": {
     "plates": "0.4.x",
     "reqwest": "0.8.x",
-    "sizzle": "1.1.x",
+    "sizzle": "git://github.com/jquery/sizzle.git#master",
     "square": "git://github.com/observing/square.git#development"
   },
   "author": "Arnout Kazemier <arnout@nodejitsu.com>",
