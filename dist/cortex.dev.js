@@ -1,3 +1,4 @@
+/* [square] Bundle: /lib/cortex.js */
 /*globals Plates, ansiparse, screenfull, ZeroClipboard */
 /**
  * @TODO implement options.silence so we can silence pointless emit calls
@@ -650,7 +651,7 @@
         }
 
         this.length = this.structures.length;
-        this.emit('add', added);
+        if (added.length) this.emit('add', added);
         return this;
       }
 
@@ -708,6 +709,27 @@
        */
     , get: function get(id) {
         return id ? this.structureId[id.id ? id.id : id] : null;
+      }
+
+      /**
+       * Get a structure by index from structures.
+       *
+       * @param {Number} i
+       * @returns {Mixed}
+       * @api public
+       */
+    , index: function index(i) {
+        return i ? this.structures[i] : null;
+      }
+
+      /**
+       * Get the last structure added to structures.
+       *
+       * @returns {Mixed}
+       * @api public
+       */
+    , last: function last() {
+        return this.structures[this.length - 1];
       }
 
       /**
@@ -1250,25 +1272,6 @@
   });
 
   /**
-   * Generate event listening methods.
-   *
-   * @api private
-   */
-  Cortex.forEach([
-    'click',      'dblclick',   'mousedown',  'mouseup',
-    'mouseover',  'mousemove',  'mousedown',  'keydown',
-    'keypress',   'keyup',      'resize',     'scroll',
-    'change',     'submit',     'reset',      'focus',
-    'blur',       'touchstart', 'touchend',   'touchmove',
-    'touchmove', 'touchenter',  'touchleave', 'touchcancel'
-  ], function generateEvents(method) {
-    Nodelist.prototype[method] = function eventlistener(fn) {
-      Events.add(method, this.selector, fn);
-      return this;
-    };
-  });
-
-  /**
    * Generate proxy methods
    *
    * @TODO get/set/remove will probably override methods for the collection, so
@@ -1586,7 +1589,8 @@
   define.importing = 'undefined';
   define.amd = true;
 
-  ;var Plates = (typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof exports !== 'undefined') ? exports : {};
+  /* [square] Directive: /home/swaagie/projects/cortex/vendor/plates.js */
+var Plates = (typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof exports !== 'undefined') ? exports : {};
 
 !function(exports, env, undefined) {
   "use strict";
@@ -2224,9 +2228,9 @@
   //
   exports.Map = Mapper;
 }(Plates, this);
-
   define.importing = 'reqwest';
-  ;/*!
+  /* [square] Directive: /home/swaagie/projects/cortex/vendor/reqwest.js */
+/*!
   * Reqwest! A general purpose XHR connection manager
   * (c) Dustin Diaz 2012
   * https://github.com/ded/reqwest
@@ -2709,9 +2713,9 @@
 
   return reqwest
 });
-
   define.importing = 'Sizzle';
-  ;/*!
+  /* [square] Directive: /home/swaagie/projects/cortex/vendor/sizzle.js */
+/*!
  * Sizzle CSS Selector Engine
  * Copyright 2012 jQuery Foundation and other contributors
  * Released under the MIT license
@@ -4431,14 +4435,14 @@ if ( typeof define === "function" && define.amd ) {
 
 })( window );
 
-
   // Make sure that it's still accessible from the outside, and rename them to
   // sensible defaults..
   Cortex.Plates = Plates;
   Cortex.request = Cortex.reqwest;
 
   // Add our polyfills
-  ;/**
+  /* [square] Directive: /home/swaagie/projects/cortex/lib/cortex.polyfill.js */
+/**
  * Polyfill Array#map
  * @see https://gist.github.com/1031568
  */
@@ -4596,7 +4600,6 @@ var Placeholder = Cortex.View.extend({
 
 // Check if we need to add support for placeholders
 if (!('placeholder' in document.createElement('input'))) Cortex.app('placeholder', Placeholder);
-
 
   // Functionality that depends on the Cortex module can be async and lazy
   // loaded using a small wrapper, we need to check if these modules where

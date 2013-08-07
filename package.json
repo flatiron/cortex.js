@@ -17,7 +17,7 @@
     "front-end"
   ],
   "dependencies": {
-    "square": "*"
+    "square": "git://github.com/observing/square.git#development"
   },
   "author": "Arnout Kazemier <arnout@nodejitsu.com>",
   "license": "MIT"

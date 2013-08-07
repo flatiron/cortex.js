@@ -1,2 +1,2 @@
 default:
-	@./node_modules/.bin/square --bundle ./square.json --plugin crush
+	@./node_modules/.bin/square --plugins minify ./square.json
