@@ -21,8 +21,8 @@
 
 #### Arguments
 
-- **type** _Mixed_ 
-- **expected** _String_ 
+- **type** _Mixed_
+- **expected** _String_
 
 ---------------------------------------
 
@@ -31,9 +31,9 @@
 
 #### Arguments
 
-- **collection** _Mixed_ 
-- **iterator** _Function_ 
-- **context** _Mixed_ 
+- **collection** _Mixed_
+- **iterator** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -42,9 +42,9 @@
 
 #### Arguments
 
-- **collection** _Mixed_ 
-- **iterator** _Function_ 
-- **context** _Mixed_ 
+- **collection** _Mixed_
+- **iterator** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -53,9 +53,9 @@
 
 #### Arguments
 
-- **collection** _Mixed_ 
-- **iterator** _Function_ 
-- **context** _Mixed_ 
+- **collection** _Mixed_
+- **iterator** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -64,8 +64,8 @@
 
 #### Arguments
 
-- **selector** _String_ 
-- **element** _DOM_ 
+- **selector** _String_
+- **element** _DOM_
 
 ---------------------------------------
 
@@ -83,8 +83,8 @@
 
 #### Arguments
 
-- **obj** _Object_ 
-- **prop** _String_ 
+- **obj** _Object_
+- **prop** _String_
 
 ---------------------------------------
 
@@ -99,8 +99,8 @@
 #### Arguments
 
 - **events** _String_ space separated list of events to listen on
-- **callback** _Function_ 
-- **context** _Mixed_ 
+- **callback** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -109,9 +109,9 @@
 
 #### Arguments
 
-- **event** _String_ 
-- **callback** _Function_ 
-- **context** _Mixed_ 
+- **event** _String_
+- **callback** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -129,7 +129,7 @@
 
 #### Arguments
 
-- **event** _String_ 
+- **event** _String_
 
 ---------------------------------------
 
@@ -139,9 +139,9 @@
 
 #### Arguments
 
-- **event** _String_ 
-- **callback** _Function_ 
-- **context** _Mixed_ 
+- **event** _String_
+- **callback** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -167,7 +167,7 @@
 
 #### Arguments
 
-- **attr** _String_ 
+- **attr** _String_
 
 ---------------------------------------
 
@@ -176,7 +176,7 @@
 
 #### Arguments
 
-- **attr** _String_ 
+- **attr** _String_
 
 ---------------------------------------
 
@@ -185,9 +185,9 @@
 
 #### Arguments
 
-- **key** _String_ 
-- **value** _Mixed_ 
-- **options** _Object_ 
+- **key** _String_
+- **value** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -196,7 +196,7 @@
 
 #### Arguments
 
-- **attr** _String_ 
+- **attr** _String_
 
 ---------------------------------------
 
@@ -224,7 +224,7 @@
 
 #### Arguments
 
-- **obj** _Object_ 
+- **obj** _Object_
 
 ---------------------------------------
 
@@ -235,7 +235,7 @@
 #### Arguments
 
 - **index** _Mixed_ the index of the array or key that it should return
-- **options** _Object_ 
+- **options** _Object_
 
 ---------------------------------------
 
@@ -246,8 +246,8 @@
 
 #### Arguments
 
-- **structures** _Array_ 
-- **options** _Object_ 
+- **structures** _Array_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -261,8 +261,8 @@
 
 #### Arguments
 
-- **index** _Mixed_ 
-- **options** _Object_ 
+- **index** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -271,8 +271,8 @@
 
 #### Arguments
 
-- **structures** _Mixed_ 
-- **options** _Object_ 
+- **structures** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -281,8 +281,8 @@
 
 #### Arguments
 
-- **structures** _Mixed_ 
-- **options** _Object_ 
+- **structures** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -291,8 +291,8 @@
 
 #### Arguments
 
-- **obj** _Mixed_ 
-- **options** _Object_ 
+- **obj** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -301,7 +301,7 @@
 
 #### Arguments
 
-- **id** _Mixed_ 
+- **id** _Mixed_
 
 ---------------------------------------
 
@@ -310,8 +310,8 @@
 
 #### Arguments
 
-- **structure** _Mixed_ 
-- **options** _Object_ 
+- **structure** _Mixed_
+- **options** _Object_
 
 ---------------------------------------
 
@@ -320,7 +320,7 @@
 
 #### Arguments
 
-- **obj** _Array_ 
+- **obj** _Array_
 
 ---------------------------------------
 
@@ -336,7 +336,7 @@
 
 #### Arguments
 
-- **options** _Object_ 
+- **options** _Object_
 
 ---------------------------------------
 
@@ -355,7 +355,7 @@
 
 #### Arguments
 
-- **selector** _String_ 
+- **selector** _String_
 
 ---------------------------------------
 
@@ -385,7 +385,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 #### Arguments
 
-- **attr** _String_ 
+- **attr** _String_
 
 ---------------------------------------
 
@@ -404,7 +404,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 #### Arguments
 
-- **dom** _String_ 
+- **dom** _String_
 
 ---------------------------------------
 
@@ -434,7 +434,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 #### Arguments
 
-- **className** _String_ 
+- **className** _String_
 
 ---------------------------------------
 
@@ -443,7 +443,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 #### Arguments
 
-- **className** _String_ 
+- **className** _String_
 
 ---------------------------------------
 
@@ -470,7 +470,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 #### Arguments
 
-- **selector** _String_ 
+- **selector** _String_
 
 ---------------------------------------
 
@@ -513,8 +513,8 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 - **type** _String_ event type, click, dbclick, keydown etc.
 - **selectors** _String_ CSS3 selector that matches the element
-- **callback** _Function_ 
-- **context** _Mixed_ 
+- **callback** _Function_
+- **context** _Mixed_
 
 ---------------------------------------
 
@@ -525,7 +525,7 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 
 - **type** _String_ event type, click, dbclick, keydown etc.
 - **selectors** _String_ CSS3 selector that matches the element
-- **callback** _Function_ 
+- **callback** _Function_
 
 ---------------------------------------
 
@@ -537,14 +537,14 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 - **name** _String_ the name of the library
 - **library** _Mixed_ either a string or a function.
 
----------------------------------------
+---------------------------------------:
 
 ### $ = Cortex.find(selector _String_, context _DOM_)
 <p>Simple CSS3 selector engine targeted for the high-end browsers. By using<br />our own interface it's relatively easy to hook in optional support for<br />different browsers.</p>
 
 #### Arguments
 
-- **selector** _String_ 
+- **selector** _String_
 - **context** _DOM_ optional context
 
 ---------------------------------------
@@ -559,10 +559,20 @@ this.template('name', data).where('href').has('/bar').insert('newurl');
 ---------------------------------------
 
 ### Cortex.app(name _String_, instance _Function_, options _Object_)
-<p>Create a new Cortex application once everything is loaded correctly.</p>
+
+Create a new Cortex application once everything is loaded correctly. Options can
+be provided with an optional `once` key. This will defer app initialization
+until the listener is trigger. Without a `once` key the app will initialize
+immediatly.
 
 #### Arguments
 
 - **name** _String_ name of the application
 - **instance** _Function_ constructor of the application
 - **options** _Object_ optional options for the app.
+
+#### Example
+
+```
+Cortex.app('Progress', Cortex.View.extend({}), { once: 'start' });
+```
