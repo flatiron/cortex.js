@@ -17,8 +17,8 @@
     "front-end"
   ],
   "dependencies": {
-    "plates": "0.4.x",
-    "reqwest": "0.8.x",
+    "plates": "git://github.com/flatiron/plates.git#master",
+    "reqwest": "git://github.com/ded/reqwest.git#master",
     "sizzle": "git://github.com/jquery/sizzle.git#master",
     "square": "git://github.com/observing/square.git#development"
   },

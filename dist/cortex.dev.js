@@ -1601,7 +1601,7 @@
   define.amd = true;
 
   /* [square] Directive: /home/swaagie/projects/cortex/node_modules/plates/lib/plates.js */
-var Plates = (typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof exports !== 'undefined') ? exports : {};
+var Plates = (typeof module !== 'undefined' && 'id' in module && typeof exports !== 'undefined') ? exports : {};
 
 !function(exports, env, undefined) {
   "use strict";
@@ -1662,7 +1662,7 @@ var Plates = (typeof module !== 'undefined' && typeof module.exports !== 'undefi
       structure = result;
     }
 
-    return result || data[key];
+    return result !== undefined ? result : data[key];
   }
 
   //
@@ -1706,7 +1706,7 @@ function matchClosing(input, tagname, html) {
       openCount = -1,
       from, to, chunk
       ;
-  
+
   from = html.search(input);
   to = from;
 
@@ -1749,7 +1749,7 @@ function matchClosing(input, tagname, html) {
     // In HTML5 it's allowed to have to use self closing tags without closing
     // separators. So we need to detect these elements based on the tag name.
     //
-    selfClosing: /area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr/,
+    selfClosing: /^(area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/,
 
     //
     // ### function hasClass(str, className)
@@ -1769,15 +1769,14 @@ function matchClosing(input, tagname, html) {
     // #### @components {Array} result of the this.tag regexp execution
     // #### @tagname {String} the name of the tag that we iterate on
     // #### @key {String} the key of the data that we need to extract from the value
+    // #### @map {Object} attribute mappings
     //
     // Iterate over over the supplied HTML.
     //
     iterate: function iterate(html, value, components, tagname, key, map) {
-
       var output  = '',
           segment = matchClosing(components.input, tagname, html),
-          data = {}
-          ;
+          data = {};
 
       // Is it an array?
       if (Array.isArray(value)) {
@@ -1823,7 +1822,7 @@ function matchClosing(input, tagname, html) {
         return output;
       }
 
-      html = html || '';
+      html = (html || '').toString();
       data = data || {};
 
       var that = this;
@@ -2013,20 +2012,21 @@ function matchClosing(input, tagname, html) {
               // the specified id to a data key in the data object.
               //
               tagbody.replace(this.attr, function (attr, key, value, idx) {
-                  if (key === map && map.conf.where || 'id' && data[value]) {
-                    var v = data[value],
-                        nest = Array.isArray(v),
-                        output = (nest || typeof v === 'object') ? that.iterate(html, v, components, tagname, value, map) : v;
+                if (key === map && map.conf.where || 'id' && data[value]) {
+                  var v = data[value],
+                      nest = Array.isArray(v),
+                      output = nest || typeof v === 'object'
+                        ? that.iterate(html.substr(left), v, components, tagname, value, map)
+                        : v;
 
-                    // If the item is an array, then we need to tell
-                    // Plates that we're dealing with nests
-                    if (nest) { that.nest.push(tagname); }
+                  // If the item is an array, then we need to tell
+                  // Plates that we're dealing with nests
+                  if (nest) { that.nest.push(tagname); }
 
-                    buffer += nest ? output : tagbody + output;
-                    matchmode = true;
-                  }
+                  buffer += nest ? output : tagbody + output;
+                  matchmode = true;
                 }
-              );
+              });
             }
           }
 
@@ -2533,7 +2533,12 @@ function matchClosing(input, tagname, html) {
     function success (resp) {
       // use global data filter on response text
       var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
-        , r = resp.responseText = filteredResponse
+        , r = filteredResponse
+      try {
+        resp.responseText = r
+      } catch (e) {
+        // can't assign this in IE<=8, just ignore
+      }
       if (r) {
         switch (type) {
         case 'json':
