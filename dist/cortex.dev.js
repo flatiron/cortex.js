@@ -811,6 +811,21 @@
       selector: 'div'
 
       /**
+       * Collection of HTML entities used to escape characters in a string.
+       *
+       * @type {Object}
+       * @api public
+       */
+    , entityMap: {
+          '&': '&amp;'
+        , '<': '&lt;'
+        , '>': '&gt;'
+        , '"': '&quot;'
+        , "'": '&#39;'
+        , '/': '&#x2F;'
+      }
+
+      /**
        * Event delegated.
        *
        * @type {Object}
@@ -825,6 +840,20 @@
        */
     , $: function $(selector) {
         return this.$el.find(selector);
+      }
+
+      /**
+       * Convenience method to escape output of the string.
+       *
+       * @param {String} string
+       * @return {String} escaped string
+       * @api public
+       */
+    , escape: function escape(string) {
+        var entityMap = this.entityMap;
+        return String(string).replace(/[&<>"'\/]/g, function (s) {
+          return entityMap[s];
+        });
       }
 
       /**
