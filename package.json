@@ -1,6 +1,6 @@
 {
   "name": "cortex.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Cortex, the application framework that tickles your senses",
   "main": "index.js",
   "scripts": {
