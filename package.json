@@ -1,6 +1,6 @@
 {
   "name": "cortex.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cortex, the application framework that tickles your senses",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,10 @@
     "front-end"
   ],
   "dependencies": {
-    "plates": "git://github.com/flatiron/plates.git#master",
-    "reqwest": "git://github.com/ded/reqwest.git#master",
-    "sizzle": "git://github.com/jquery/sizzle.git#master",
-    "square": "git://github.com/observing/square.git#development"
+    "plates": "0.4.x",
+    "reqwest": "1.1.x",
+    "sizzle": "2.0.x",
+    "square": "1.0.x"
   },
   "author": "Arnout Kazemier <arnout@nodejitsu.com>",
   "license": "MIT"
