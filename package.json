@@ -16,7 +16,7 @@
     "browser",
     "front-end"
   ],
-  "dependencies": {
+  "devDependencies": {
     "plates": "0.4.x",
     "reqwest": "1.1.x",
     "sizzle": "2.0.x",
