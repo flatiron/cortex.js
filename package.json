@@ -1,6 +1,6 @@
 {
   "name": "cortex.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Cortex, the application framework that tickles your senses",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
     "sizzle": "2.0.x",
     "square": "1.0.x"
   },
-  "author": "Arnout Kazemier <arnout@nodejitsu.com>",
+  "author": "Arnout Kazemier",
   "license": "MIT"
 }

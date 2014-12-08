@@ -1,4 +1,4 @@
-cortex
-======
+# Cortex.js
 
-A front-end framework 
+An minimal front-end application framework that tickles your senses which is
+heavily inspired by jQuery & BackBone.js.
